@@ -26,11 +26,14 @@
             <div>
                 <form method="POST">
 
+
+
+
+
                     <div>
                         <label for="nome">Nome da Tarefa: </label>
                         <input type="text" id="nome" name="nome">
                     </div>
-
                     <div>
                         <label for="prioridade_id">Prioridade: </label>
                         <select id="prioridade_id" name="prioridade_id">
@@ -53,7 +56,7 @@
                         <label for="pessoa_id">Prioridade: </label>
                         <select id="pessoa_id" name="pessoa_id">
                             <option>Selecione a prioridade</option>
-                            <?php foreach ($pessoas as $key => $value) : ?>
+                            <?php foreach ($pessoas['pessoas'] as $key => $value) : ?>
                                 <option value=" <?php $value['pessoa_id'] ?>"><?php echo $value['nome'] ?> </option>
                             <?php endforeach; ?>
                         </select>

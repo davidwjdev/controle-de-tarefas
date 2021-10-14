@@ -11,5 +11,5 @@ class PessoaModel extends Model
     protected $primaryKey = 'pessoa_id';
 
 	protected $allowedFields = ['nome'];
+
 }
-?>
