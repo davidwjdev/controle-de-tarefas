@@ -18,7 +18,9 @@
                 </li>
             </nav>
         </header>
-
+        <div>
+            <a href="/adicionar">Adicionar</a>
+        </div>
 
         <div class="body">
             <table>
@@ -28,13 +30,24 @@
                     <th>Nome da Tarefa</th>
                     <th>Prioridade</th>
                     <th>Status</th>
-                    <th>Ações</th>
+                    <th colspan="2">Ações</th>
                 </thead>
                 <tbody>
+                    <?php if(!isset($tarefas)) :
+                        echo "<td colspan='6'>Não possui tarefas cadastradas!</td>";
+                    else:   
+                    foreach($tarefas as $key => $value) : ?>
                     <tr>
-                        <td></td>
-                    </tr>
+                        <td><?php echo $value['tarefa_id']; ?></td>
+                        <td><?php echo $value['nome']; ?></td>
+                        <td><?php echo $value['prioridade_id']; ?></td>
+                        <td><?php echo $value['status_id']; ?></td>
+                        <td><a href="#">Editar</a></td>
+                        <td><a href="#">Apagar</a></td>
 
+                    </tr>
+                    <?php endforeach;
+                    endif; ?>
                 </tbody>
             </table>
         </div>
