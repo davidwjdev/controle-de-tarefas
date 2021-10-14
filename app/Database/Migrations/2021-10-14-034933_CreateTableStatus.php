@@ -20,7 +20,7 @@ class CreateTableStatus extends Migration
                 'constraint' => '50',
             ]
         ]);
-        $this->forge->addKey('status_id', true);
+        $this->forge->addPrimaryKey('status_id', true);
         $this->forge->createTable('status');
     }
 

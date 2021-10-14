@@ -20,7 +20,7 @@ class CreateTablePrioridades extends Migration
                     'constraint' => '50',
             ]
     ]);
-    $this->forge->addKey('prioridade_id', true);
+    $this->forge->addPrimaryKey('prioridade_id', true);
     $this->forge->createTable('prioridades');
     }
 

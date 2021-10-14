@@ -20,7 +20,7 @@ class CreateTablePessoas extends Migration
                     'constraint' => '250',
             ]
     ]);
-    $this->forge->addKey('pessoa_id', true);
+    $this->forge->addPrimaryKey('pessoa_id', true);
     $this->forge->createTable('pessoas');
     }
 

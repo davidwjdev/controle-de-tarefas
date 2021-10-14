@@ -2,11 +2,16 @@
 
 namespace App\Controllers;
 
-class TarefasController extends BaseController
+use App\Models\TarefaModel;
+use CodeIgniter\Controller;
+
+class TarefasController extends Controller
 {
     public function index()
     {
-        return view('tarefas/index');
+        $model = new TarefaModel();
+        $data['tarefa_id'] = $model->orderBy('prioridade_id, status_id','DESC')->findAll();
+        return view('tarefas/index', $data);
     }
 }
 

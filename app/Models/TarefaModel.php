@@ -4,17 +4,12 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Tarefa extends Model
+class TarefaModel extends Model
 {
     protected $table = 'tarefas';
-    
-    public function getTask($id = null)
-    {
-        if($id === false){
-            return $this->findAll();
-        }else{
-            return $this->getWhere(["tarefa_id" => $id]);
-        }
-    }
+
+    protected $primaryKey = 'tarefa_id';
+
+	protected $allowedFields = ['nome', 'prioridade_id', 'status_id','pessoa_id'];
 }
 ?>
