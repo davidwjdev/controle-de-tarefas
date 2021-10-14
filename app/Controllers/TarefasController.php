@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Models\TarefaModel;
 use App\Models\PessoaModel;
-use App\Models\PriopridadeModel;
+use App\Models\PrioridadeModel;
 use App\Models\StatusModel;
 
 use CodeIgniter\Controller;
@@ -21,10 +21,13 @@ class TarefasController extends Controller
     }
     public function create()
     {
+        $prioridadeModel = new PrioridadeModel();
+        $prioridades['prioridades'] = $prioridadeModel->findAll();
+        $statusModel = new StatusModel();
+        $status['status'] = $statusModel->findAll();
         $pessoaModel = new PessoaModel();
-        $data['pessoas'] = $pessoaModel->findAll();
-
-        return view('tarefas/create',['pessoas' => $data]);
+        $pessoas['pessoas'] = $pessoaModel->findAll();
+        return view('tarefas/create',['prioridades' => $prioridades,'status' => $status, 'pessoas' => $pessoas]);
     }
 }
 

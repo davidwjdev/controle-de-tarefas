@@ -25,11 +25,6 @@
         <div class="body">
             <div>
                 <form method="POST">
-
-
-
-
-
                     <div>
                         <label for="nome">Nome da Tarefa: </label>
                         <input type="text" id="nome" name="nome">
@@ -38,30 +33,30 @@
                         <label for="prioridade_id">Prioridade: </label>
                         <select id="prioridade_id" name="prioridade_id">
                             <option>Selecione a prioridade</option>
-                            <?php foreach ($prioridades as $key => $value) : ?>
-                                <option value=" <?php $value['prioridade_id'] ?>"><?php echo $value['nome'] ?> </option>
+                            <?php foreach ($prioridades['prioridades'] as $key => $value) : ?>
+                                <option value="<?php echo $value['prioridade_id']; ?>"><?php echo $value['nome'] ?> </option>
                             <?php endforeach; ?>
                         </select>
                     </div>
                     <div>
-                        <label for="status_id">Prioridade: </label>
+                        <label for="status_id">Status: </label>
                         <select id="status_id" name="status_id">
                             <option>Selecione a prioridade</option>
-                            <?php foreach ($status as $key => $value) : ?>
-                                <option value=" <?php $value['status_id'] ?>"><?php echo $value['nome'] ?> </option>
+                            <?php foreach ($status['status'] as $key => $value) : ?>
+                                <option value="<?php echo $value['status_id']; ?>"><?php echo $value['nome'] ?> </option>
                             <?php endforeach; ?>
                         </select>
                     </div>
                     <div>
-                        <label for="pessoa_id">Prioridade: </label>
+                        <label for="pessoa_id">Pessoa: </label>
                         <select id="pessoa_id" name="pessoa_id">
                             <option>Selecione a prioridade</option>
                             <?php foreach ($pessoas['pessoas'] as $key => $value) : ?>
-                                <option value=" <?php $value['pessoa_id'] ?>"><?php echo $value['nome'] ?> </option>
+                                <option value="<?php echo $value['pessoa_id']; ?>"><?php echo $value['nome'] ?> </option>
                             <?php endforeach; ?>
                         </select>
                     </div>
-                    <a href="#" class="button">Salvar</a>
+                    <a href="submit" class="button">Salvar</a>
                     <a href="/" class="button">Cancelar</a>
                 </form>
             </div>

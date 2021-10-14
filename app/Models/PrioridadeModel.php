@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class PriopridadeModel extends Model
+class PrioridadeModel extends Model
 {
     protected $table = 'prioridades';
 
