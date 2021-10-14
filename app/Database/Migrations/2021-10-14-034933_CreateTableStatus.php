@@ -26,6 +26,6 @@ class CreateTableStatus extends Migration
 
     public function down()
     {
-        $this->forge->dropTable('status');
+        $this->forge->dropTable('prioridades');
     }
 }
