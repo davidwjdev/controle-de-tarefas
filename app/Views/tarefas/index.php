@@ -19,7 +19,7 @@
             </nav>
         </header>
         <div>
-            <a href="/adicionar">Adicionar</a>
+            <a class="button" href="/adicionar">Adicionar</a>
         </div>
 
         <div class="body">
@@ -42,8 +42,8 @@
                         <td><?php echo $value['nome']; ?></td>
                         <td><?php echo $value['prioridade_id']; ?></td>
                         <td><?php echo $value['status_id']; ?></td>
-                        <td><a href="#">Editar</a></td>
-                        <td><a href="#">Apagar</a></td>
+                        <td><a class="button" href="#">Editar</a></td>
+                        <td><a class="button" href="#">Apagar</a></td>
 
                     </tr>
                     <?php endforeach;

@@ -14,6 +14,10 @@ class TarefasController extends Controller
         ->findAll();
         return view('tarefas/index', $data);
     }
+    public function create()
+    {
+        return view('tarefas/create');
+    }
 }
 
 ?>
