@@ -47,9 +47,11 @@
                         <label for="pessoa_id">Pessoa: </label>
                         <select id="pessoa_id" name="pessoa_id">
                             <option>Selecione a prioridade</option>
-                            <?php foreach ($pessoas['pessoas'] as $key => $value) : ?>
-                                <option value="<?php echo $value['pessoa_id']; ?>"><?php echo $value['nome'] ?> </option>
-                            <?php endforeach; ?>
+                            <?php foreach ($pessoas as $key => $value) :
+                                if ($value['valido'] == "Y") :  ?>
+                                    <option value="<?php echo $value['pessoa_id']; ?>"><?php echo $value['nome'] ?> </option>
+                            <?php endif;
+                            endforeach; ?>
                         </select>
                     </div>
                     <button type="submit" class="button">Salvar</button>

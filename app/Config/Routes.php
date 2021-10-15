@@ -35,8 +35,8 @@ $routes->get('/', 'TarefasController::index');
 $routes->get('/adicionar', 'TarefasController::create');
 $routes->post('/adicionar', 'TarefasController::store');
 $routes->get('/editar/(:num)', 'TarefasController::edit/$1');
-$routes->post('/editar/$id', 'TarefasController::update');
-$routes->get('/apagar/$id', 'TarefasController::destroy');
+$routes->post('/salvar', 'TarefasController::update');
+$routes->get('/apagar/(:num)', 'TarefasController::destroy/$1');
 
 
 

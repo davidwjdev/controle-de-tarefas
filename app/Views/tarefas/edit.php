@@ -24,10 +24,12 @@
 
         <div class="body">
             <div>
-                <form method="POST" action="/editar">
+                <form method="POST" action="/salvar">
+                <input type="hidden" id="tarefa_id" name="tarefa_id" value="<?php echo $tarefa['tarefa_id'];?>" >
+
                     <div>
                         <label for="nome">Nome da Tarefa: </label>
-                        <input type="text" id="nome" name="nome" value="<?php  $tarefa['nome'];?>" >
+                        <input type="text" id="nome" name="nome" value="<?php echo $tarefa['nome'];?>" >
                     </div>
                     <div>
                         <label for="prioridade_id">Prioridade: </label>
@@ -43,7 +45,7 @@
                         <select id="status_id" name="status_id">
                             <option>Selecione a prioridade</option>
                             <?php foreach ($status['status'] as $key => $value) : ?>
-                                <option <?php if(isset($tarefa)): echo "selected"; endif; ?> value="<?php echo $value['status_id']; ?>"><?php echo $value['nome'] ?> </option>
+                                <option <?php if(isset($tarefa['status_id']) && $tarefa['status_id'] == $value['status_id']): echo "selected"; endif; ?> value="<?php echo $value['status_id']; ?>"><?php echo $value['nome'] ?> </option>
                             <?php endforeach; ?>
                         </select>
                     </div>
@@ -52,7 +54,7 @@
                         <select id="pessoa_id" name="pessoa_id">
                             <option>Selecione a prioridade</option>
                             <?php foreach ($pessoas['pessoas'] as $key => $value) : ?>
-                                <option <?php if(isset($tarefa)): echo "selected"; endif; ?> value="<?php echo $value['pessoa_id']; ?>"><?php echo $value['nome'] ?> </option>
+                                <option <?php if(isset($tarefa['pessoa_id']) && $tarefa['pessoa_id'] == $value['pessoa_id']): echo "selected"; endif; ?> value="<?php echo $value['pessoa_id']; ?>"><?php echo $value['nome'] ?> </option>
                             <?php endforeach; ?>
                         </select>
                     </div>
