@@ -35,18 +35,18 @@ class TarefasController extends BaseController
         //  $pessoaModel = new PessoaModel();
         //  $pessoas['pessoas'] = $pessoaModel->findAll();
         $db = db_connect();
-
-        $pessoas = $db->query("select 
+        $pessoas['pessoas'] = $db->query("select 
         if(count(1) < 3, 'Y','N') as valido, tar.pessoa_id, pes.nome from tarefas tar
         inner join pessoas pes
         on tar.pessoa_id=pes.pessoa_id
+        where tar.status_id in (1,2)
         group by tar.pessoa_id, pes.nome")->getResultArray();
 
         return view('tarefas/create',['prioridades' => $prioridades,'status' => $status, 'pessoas' => $pessoas]);
     }
     // salva dados do form no banco
     public function store() {
-
+        
         $model = new TarefaModel();
         $data = [
             'nome' => $this->request->getVar('nome'),
@@ -67,8 +67,14 @@ class TarefasController extends BaseController
         $statusModel = new StatusModel();
         $status['status'] = $statusModel->findAll();
         //retorna lista de pessoas no combobox do form
-        $pessoaModel = new PessoaModel();
-        $pessoas['pessoas'] = $pessoaModel->findAll();
+        $db = db_connect();
+        $pessoas['pessoas'] = $db->query("select 
+        if(count(1) < 3, 'Y','N') as valido, tar.pessoa_id, pes.nome from tarefas tar
+        inner join pessoas pes
+        on tar.pessoa_id=pes.pessoa_id
+        where tar.status_id in (1,2)
+        group by tar.pessoa_id, pes.nome")->getResultArray();
+
         $tarefaModel = new TarefaModel();
         $tarefa = $tarefaModel->where('tarefa_id',$id)->first();
 
