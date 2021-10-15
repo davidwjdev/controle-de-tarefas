@@ -28,27 +28,29 @@
                 <thead>
                     <th>ID</th>
                     <th>Nome da Tarefa</th>
+                    <th>Nome</th>
                     <th>Prioridade</th>
                     <th>Status</th>
                     <th colspan="2">Ações</th>
                 </thead>
                 <tbody>
-                    <?php if(!isset($tarefas)) :
+                <?php if(!isset($tarefas)) :
                         echo "<td colspan='6'>Não possui tarefas cadastradas!</td>";
                     else:   
                     foreach($tarefas as $key => $value) : ?>
                     <tr>
                         <td><?php echo $value['tarefa_id']; ?></td>
-                        <td><?php echo $value['nome']; ?></td>
-                        <td><?php echo $value['prioridade_id']; ?></td>
-                        <td><?php echo $value['status_id']; ?></td>
+                        <td><?php echo $value['nome_tarefa']; ?></td>
+                        <td><?php echo $value['nome_pessoa']; ?></td>
+                        <td><?php echo $value['nome_prioridade']; ?></td>
+                        <td><?php echo $value['nome_status']; ?></td>
                         <td><a class="button" href="#">Editar</a></td>
                         <td><a class="button" href="#">Apagar</a></td>
 
                     </tr>
                     <?php endforeach;
                     endif; ?>
-                </tbody>
+               </tbody>
             </table>
         </div>
     </div>

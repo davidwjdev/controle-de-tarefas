@@ -24,7 +24,7 @@
 
         <div class="body">
             <div>
-                <form method="POST">
+                <form method="POST" action="/adicionar">
                     <div>
                         <label for="nome">Nome da Tarefa: </label>
                         <input type="text" id="nome" name="nome">
@@ -56,7 +56,7 @@
                             <?php endforeach; ?>
                         </select>
                     </div>
-                    <a href="submit" class="button">Salvar</a>
+                    <button type="submit" class="button">Salvar</button>
                     <a href="/" class="button">Cancelar</a>
                 </form>
             </div>

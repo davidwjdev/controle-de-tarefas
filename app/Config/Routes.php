@@ -33,6 +33,7 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'TarefasController::index');
 $routes->get('/adicionar', 'TarefasController::create');
+$routes->post('/adicionar', 'TarefasController::store');
 
 
 /*

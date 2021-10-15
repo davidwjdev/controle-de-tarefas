@@ -7,17 +7,20 @@ use App\Models\PessoaModel;
 use App\Models\PrioridadeModel;
 use App\Models\StatusModel;
 
-use CodeIgniter\Controller;
-
-class TarefasController extends Controller
+class TarefasController extends BaseController
 {
-
     public function index()
     {
-        $model = new TarefaModel();
-        $data['tarefas'] = $model//->orderBy('prioridade_id, status_id','DESC')
-        ->findAll();
-        return view('tarefas/index', $data);
+        // $model = new TarefaModel();
+        // $data['tarefas'] = $model;
+        $db = db_connect();
+        $query = $db->query('select tar.tarefa_id, tar.nome as nome_tarefa, pri.nome as nome_prioridade, sta.nome as nome_status, pes.nome as nome_pessoa
+         from  tarefas tar
+         inner join prioridades pri on tar.prioridade_id = pri.prioridade_id
+         inner join status sta on tar.status_id = sta.status_id
+         inner join pessoas pes on tar.pessoa_id = pes.pessoa_id')->getResultArray();
+        //->orderBy('tarefas.prioridade_id, tarefas.status_id','DESC')
+        return view('tarefas/index', ['tarefas' => $query]);
     }
     public function create()
     {
@@ -28,6 +31,17 @@ class TarefasController extends Controller
         $pessoaModel = new PessoaModel();
         $pessoas['pessoas'] = $pessoaModel->findAll();
         return view('tarefas/create',['prioridades' => $prioridades,'status' => $status, 'pessoas' => $pessoas]);
+    }
+    public function store() {
+        $model = new TarefaModel();
+        $data = [
+            'nome' => $this->request->getVar('nome'),
+            'prioridade_id'  => $this->request->getVar('prioridade_id'),
+            'status_id'  => $this->request->getVar('status_id'),
+            'pessoa_id'  => $this->request->getVar('pessoa_id'),
+        ];
+        $model->insert($data);
+        return $this->response->redirect(site_url('/'));
     }
 }
 
