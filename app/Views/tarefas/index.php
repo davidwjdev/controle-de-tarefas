@@ -21,10 +21,8 @@
         <div>
             <a class="button" href="/adicionar">Adicionar</a>
         </div>
-
         <div class="body">
             <table>
-
                 <thead>
                     <th>ID</th>
                     <th>Nome da Tarefa</th>
@@ -34,6 +32,7 @@
                     <th colspan="2">Ações</th>
                 </thead>
                 <tbody>
+                <!--Lista de tarefas -->
                 <?php if(!isset($tarefas)) :
                         echo "<td colspan='6'>Não possui tarefas cadastradas!</td>";
                     else:   
@@ -44,9 +43,8 @@
                         <td><?php echo $value['nome_pessoa']; ?></td>
                         <td><?php echo $value['nome_prioridade']; ?></td>
                         <td><?php echo $value['nome_status']; ?></td>
-                        <td><a class="button" href="#">Editar</a></td>
-                        <td><a class="button" href="#">Apagar</a></td>
-
+                        <td><a class="button" href="/editar/<?php echo $value['tarefa_id'];?>">Editar</a></td>
+                        <td><a class="button" href="/apagar/<?php echo $value['tarefa_id'];?>">Apagar</a></td>
                     </tr>
                     <?php endforeach;
                     endif; ?>
